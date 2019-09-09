@@ -14,7 +14,8 @@ const Title = styled.h2`
 `
 
 
-const Form = () => {
+const Form = (props) => {
+    console.log(props);
     return (
         <div>
             <Wrapper action="">
@@ -23,28 +24,36 @@ const Form = () => {
                     First Name:
                     <input
                      type="text"
-                     name='first'
+                     name='name'
+                     value={props.user.name}
+                     onChange={event => props.handleChange(event)}
                      />
                 </label>
                 <label>
                     Position:
                     <input
                      type="text"
-                     name='first'
+                     name='position'
+                     value={props.user.position}
+                     onChange={event => props.handleChange(event)}
                      />
                 </label>
                 <label>
                     Hobby:
                     <input
                      type="text"
-                     name='first'
+                     name='hobby'
+                     value={props.user.hobby}
+                     onChange={event => props.handleChange(event)}
                      />
                 </label>
                 <label>
                     Passion:
                     <input
                      type="text"
-                     name='first'
+                     name='passion'
+                     value={props.user.passion}
+                     onChange={event => props.handleChange(event)}
                      />
                 </label>
                 <button>Submit!</button>

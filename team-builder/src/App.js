@@ -22,7 +22,11 @@ function App() {
       hobby: 'Sculpting',
       passion: 'Local Politics'
     }
-  ])
+  ]);
+
+  const handleChange = event => {
+    setUser({...user, [event.target.name]: event.target.value});
+  }
 
 
 
@@ -30,7 +34,8 @@ function App() {
 
   return (
     <div className="App">
-      <Form />
+      {console.log(user)}
+      <Form user={user} handleChange={handleChange}/>
     </div>
   );
 }
