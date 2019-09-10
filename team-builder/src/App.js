@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Form from './Components/Form';
+import Member from './Components/Member';
 
 function App() {
   const [user, setUser] = useState([
@@ -28,6 +29,11 @@ function App() {
     setUser({...user, [event.target.name]: event.target.value});
   }
 
+  const handleSubmit = event => {
+    event.preventDefault();
+    setUser({...user, [event.target.name]: event.target.value});
+  }
+
 
 
 
@@ -35,7 +41,8 @@ function App() {
   return (
     <div className="App">
       {console.log(user)}
-      <Form user={user} handleChange={handleChange}/>
+      <Form user={user} setUser={setUser} handleChange={handleChange} handleSubmit={handleSubmit} />
+      <Member user={user} />
     </div>
   );
 }

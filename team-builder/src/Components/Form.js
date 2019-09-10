@@ -4,7 +4,6 @@ import styled from 'styled-components'
 
 const Wrapper = styled.form`
     width: 100%;
-    height: 100vh;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -18,7 +17,7 @@ const Form = (props) => {
     console.log(props);
     return (
         <div>
-            <Wrapper action="">
+            <Wrapper action="" onSubmit={event => props.handleSubmit(event)}>
                 <Title>Team Member Details</Title>
                 <label>
                     First Name:
