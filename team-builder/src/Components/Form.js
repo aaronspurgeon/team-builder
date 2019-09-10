@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components'
 
 
@@ -14,47 +14,54 @@ const Title = styled.h2`
 
 
 const Form = (props) => {
-    console.log(props);
+    const [newMember, setNewMember] = useState({ name: '', position: '', hobby: '', passion: ''});
+
+    const handleChange = event => {
+        setNewMember({...newMember, [event.target.name]: event.target.value});
+      }
+    
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        props.setUser([newMember, ...props.user]);
+      }
     return (
         <div>
-            <Wrapper action="" onSubmit={event => props.handleSubmit(event)}>
+            <Wrapper action="" onSubmit={handleSubmit}>
                 <Title>Team Member Details</Title>
-                <label>
-                    First Name:
+
                     <input
-                     type="text"
+                     type='text'
                      name='name'
                      value={props.user.name}
-                     onChange={event => props.handleChange(event)}
+                     placeholder='Name'
+                     onChange={handleChange}
                      />
-                </label>
-                <label>
-                    Position:
+
                     <input
-                     type="text"
+                     type='text'
                      name='position'
                      value={props.user.position}
-                     onChange={event => props.handleChange(event)}
+                     placeholder='Position'
+                     onChange={handleChange}
                      />
-                </label>
-                <label>
-                    Hobby:
+
                     <input
-                     type="text"
+                     type='text'
                      name='hobby'
                      value={props.user.hobby}
-                     onChange={event => props.handleChange(event)}
+                     placeholder='Hobby'
+                     onChange={handleChange}
                      />
-                </label>
-                <label>
-                    Passion:
+                
                     <input
-                     type="text"
+                     type='text'
                      name='passion'
                      value={props.user.passion}
-                     onChange={event => props.handleChange(event)}
+                     placeholder='Passion'
+                     onChange={handleChange}
                      />
-                </label>
+                
                 <button>Submit!</button>
             </Wrapper>
         </div>

@@ -25,23 +25,12 @@ function App() {
     }
   ]);
 
-  const handleChange = event => {
-    setUser({...user, [event.target.name]: event.target.value});
-  }
-
-  const handleSubmit = event => {
-    event.preventDefault();
-    setUser({...user, [event.target.name]: event.target.value});
-  }
-
-
-
-
+ 
 
   return (
     <div className="App">
       {console.log(user)}
-      <Form user={user} setUser={setUser} handleChange={handleChange} handleSubmit={handleSubmit} />
+      <Form user={user} setUser={setUser} />
       <Member user={user} />
     </div>
   );
